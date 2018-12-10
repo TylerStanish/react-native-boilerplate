@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "sports-guessing-mobile",
-    "description": "This project is really great.",
-    "slug": "sports-guessing-mobile",
+    "name": "react-native-boilerplate",
+    "description": "RN boilerplate for React-Navigation and Redux",
+    "slug": "react-native-boilerplate",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": ["ios", "android"],

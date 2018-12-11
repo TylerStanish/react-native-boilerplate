@@ -1,8 +1,11 @@
 import React from 'react'
 import {Provider} from 'react-redux'
-import {createStore, applyMiddleware} from 'readux'
+import {createStore, applyMiddleware} from 'redux'
 import ReduxThunk from 'redux-thunk'
-import {createSwitchNavigator} from 'react-navigation'
+import {
+  createSwitchNavigator,
+  createAppContainer
+} from 'react-navigation'
 
 import LoginScreen from './src/screens/LoginScreen'
 import LoggedInScreen from './src/screens/LoggedInScreen'
@@ -11,7 +14,7 @@ import NavigationService from './src/NavigationService'
 
 export let store = createStore(reducers, {}, applyMiddleware(ReduxThunk))
 
-const AuthenticationContainer = createSwitchNavigator({
+const AuthenticationNavigator = createSwitchNavigator({
   SignedIn: {
     screen: LoggedInScreen
   },
@@ -19,14 +22,15 @@ const AuthenticationContainer = createSwitchNavigator({
     screen: LoginScreen
   }
 }, {
-  initialRouteName: 'SignedIn'
+  initialRouteName: 'SignedOut'
 })
+const WrapperNavigator = createAppContainer(AuthenticationNavigator)
 
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={store} style={{flex: 1}}>
-        <AuthenticationContainer ref={ref => NavigationService.setRootNavigator(ref)}/>
+        <WrapperNavigator ref={ref => NavigationService.setRootNavigator(ref)}/>
       </Provider>
     )
   }

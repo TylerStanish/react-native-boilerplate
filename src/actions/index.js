@@ -1,5 +1,5 @@
-import * as ExampleActions from './ExampleActions';
+import * as AuthActions from './AuthActions'
 
 export default {
-  example: ExampleActions
+  auth: AuthActions
 }

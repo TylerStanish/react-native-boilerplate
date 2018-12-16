@@ -9,7 +9,7 @@ import {connect} from 'react-redux'
 import Actions from '../actions'
 import NavigationService from '../NavigationService'
 
-class LoggedInScreen extends React.Component{
+export class LoggedInScreen extends React.Component{
 
   componentWillReceiveProps(nextProps){
     if(this.props.loggedIn && !nextProps.loggedIn){
@@ -20,7 +20,7 @@ class LoggedInScreen extends React.Component{
   render(){
     return(
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text>The user is now logged in</Text>
+        <Text>The user is now logged in {this.props.loggedIn.toString()}</Text>
         <Button title='Click to logout' onPress={() => this.props.logout()}/>
       </View>
     )

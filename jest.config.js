@@ -5,5 +5,8 @@ module.exports = {
   },
   "transformIgnorePatterns": [
     "node_modules/(?!react-native|react-navigation)/"
+  ],
+  "testPathIgnorePatterns": [
+    "<rootDir>/node_modules/"
   ]
 };

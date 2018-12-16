@@ -11,7 +11,7 @@ import {connect} from 'react-redux'
 import Actions from '../actions'
 import NavigationService from '../NavigationService'
 
-class LoginScreen extends React.Component{
+export class LoginScreen extends React.Component{
 
   componentWillReceiveProps(nextProps){
     if(!this.props.loggedIn && nextProps.loggedIn){
